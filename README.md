@@ -3,7 +3,7 @@
 
 **Beta:** This library is still under development and should not be considered ready for production
 
-Ecospec lets you efficently test your rails applications by only running relevant specs for the changes introduced in the current branch. 
+Ecospec lets you redefine the definition of a passing test suit, by only executing tests for code that was (or could be) impacted by the changes.
 
 Because Ruby is a dynamic language, it can be difficult to fully establish the dependencies of the code involved. Ecospec simplifies the problem by instead determining what tests must run for a given set of changes, in accordance with a custom configuration you define.
 
