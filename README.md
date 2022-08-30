@@ -1,6 +1,6 @@
 # Ecospec
 
-*Beta:* This library is till under development and should not be considered ready for production
+**Beta:** This library is till under development and should not be considered ready for production
 
 Ecospec lets you efficently test your rails applications by only running relevant specs for the changes introduced in the current branch. 
 
