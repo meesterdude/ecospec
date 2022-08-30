@@ -70,6 +70,6 @@ else
   count = "#{ran.size}/#{all_spec_files.size}"
   percent = 100 - ((ran.size.to_f/all_spec_files.size)*100).round(1)
   @ignored.each{|i| STDERR.puts i }
-  STDERR.puts "returning #{count} (#{percent}% reduction in specs ran)"
+  STDERR.puts "running #{count} specs (#{percent}% reduction in specs ran)"
 
 end
