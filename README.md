@@ -15,16 +15,6 @@ Ecospec takes a conservative approach: If you don't ignore the directory/file, a
 
 And for any change made in app/, it's spec will be looked for in spec/ and added to the tests to run if it exists. This means if you add `app/presenters` as a matching rule with no additional details, then any files changed within will also require their associated spec (and not the entire test suite)
 
-
-## Suggestions
-
-- Given the reach of Models in a typical codebase, you may want to be liberal in running tests for these changes. 
-- be careful with any instances where intergration tests are skipped. Be mindful of what they actually test and if you want the entire test suite to be running for their changes. 
-- both the matching and related_specs are regex, allowing you express custom test matching. 
-- lean towards overtesting
-- avoid file-specific matching and rely on patterns/directory matching. 
-
-
 ## Installation
 
 Install the gem and add to the application's Gemfile by executing:
@@ -64,6 +54,14 @@ To run the specs, you can run
 ```bash
 rspec $(bundle exec ecospec)
 ```
+
+## Suggestions
+
+- Given the reach of Models in a typical codebase, you may want to be liberal in running tests for these changes. 
+- be careful with any instances where intergration tests are skipped. Be mindful of what they actually test and if you want the entire test suite to be running for their changes. 
+- both the matching and related_specs are regex, allowing you express custom test matching. 
+- lean towards overtesting
+- avoid file-specific matching and rely on patterns/directory matching. 
 
 
 ## Development
