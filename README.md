@@ -11,7 +11,7 @@ For example: If you change a controller, you probably don't need to run any of y
 
 Other changes, such as those to the readme.md of a project, do not need any tests at all in order to be merged. 
 
-Ecospec takes a conservative approach: If you don't ignore the directory/file, and don't have a rule for it, the entire test suite will run. Only when you have exlicitly specified that a file or directory is safe to ignore via patter matching, or what also should run if any of its contents change, does ecospec generate a list of files. 
+Ecospec takes a conservative approach: If you don't ignore the directory/file, and don't have a rule for it, the entire test suite will run. Only when you have exlicitly specified that a file or directory is safe to ignore via pattern matching, or what also should run if any of its contents change, does ecospec generate a list of files. 
 
 And for any change made in app/, it's spec will be looked for in spec/ and added to the tests to run if it exists. This means if you add `app/presenters` as a matching rule with no additional details, then any files changed within will also require their associated spec (and not the entire test suite)
 
