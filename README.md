@@ -1,6 +1,7 @@
 # Ecospec
+![image](https://user-images.githubusercontent.com/931048/187340551-d6903624-e895-4fcc-b488-fdb90bb16dba.png)
 
-*Beta:* This library is till under development and should not be considered ready for production
+**Beta:** This library is still under development and should not be considered ready for production
 
 Ecospec lets you efficently test your rails applications by only running relevant specs for the changes introduced in the current branch. 
 
@@ -57,7 +58,9 @@ each key in `ignore` and `definitions` is a regex, as well as each `included_spe
 
 next,update your branch with main (if it is not already)
 
-now run `bundle exec ecospec` to see a list of specs that should be ran, based on the changes in your branch. To run the specs, you can run 
+now run `bundle exec ecospec` to see a list of specs that should be ran, based on the changes in your branch. you'll also see how effective it was with output like `running 2/1683 specs (99.9% reduction in specs ran)`
+
+To run the specs, you can run 
 ```bash
 rspec $(bundle exec ecospec)
 ```
