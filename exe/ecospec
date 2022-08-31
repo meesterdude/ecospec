@@ -14,10 +14,11 @@ changed = `git diff  main --name-only`
 
 def run(files)
   output = []
-  require 'pry'
-
+  always_run.each do |spec_file|
+    output |= all_spec_files.select{|f| spec_file.match?(Regexp.new(spec_regex))}
+  end
   files.split(" ").each do |f|
-    binding.pry
+    
     if ignore.find{|pattern| f.match?(Regexp.new(pattern))}
       puts "ignoring"
       @ignored << "ignoring #{f}"
@@ -57,6 +58,10 @@ def ignore
   yaml["ignore"]
 end
 
+def always_run
+  yaml["always_run"]
+end
+
 def all_spec_files
   @all_spec_files ||= `find spec -print | grep _spec.rb`.split()
 end
@@ -70,6 +75,6 @@ else
   count = "#{ran.size}/#{all_spec_files.size}"
   percent = 100 - ((ran.size.to_f/all_spec_files.size)*100).round(1)
   @ignored.each{|i| STDERR.puts i }
-  STDERR.puts "running #{count} specs (#{percent}% reduction in specs ran)"
+  STDERR.puts "running #{count} specs ```(#{percent}% reduction in specs ran)"
 
 end

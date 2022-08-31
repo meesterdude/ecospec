@@ -41,6 +41,8 @@ create a `config/ecospec.yml` file with content like the following:
 ```ruby
 ignore:
   - "\.md$"
+always_run:
+  - "acceptance/"
 definitions:
   Gemfile:
     include_specs:
@@ -54,7 +56,7 @@ definitions:
       - spec/
 ```
 
-each key in `ignore` and `definitions` is a regex, as well as each `included_specs` value. You'll likely want an entry for each value from running `ls -1 app/`.
+each key in `ignore` and `definitions` is a regex, as well as each `included_specs` value. You'll likely want an entry for each value from running `ls -1 app/`. if you specify patterns in `always_run` those specs will always be among the specs executed regardless of any file changes. 
 
 next,update your branch with main (if it is not already)
 
