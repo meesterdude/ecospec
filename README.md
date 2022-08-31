@@ -3,7 +3,7 @@
 
 **Beta:** This library is still under development and should not be considered ready for production
 
-Ecospec lets you efficently test your rails applications by only running relevant specs for the changes introduced in the current branch. 
+Ecospec lets you redefine the definition of a passing test suit, by only executing tests for code that was (or could be) impacted by the changes.
 
 Because Ruby is a dynamic language, it can be difficult to fully establish the dependencies of the code involved. Ecospec simplifies the problem by instead determining what tests must run for a given set of changes, in accordance with a custom configuration you define.
 
@@ -11,19 +11,9 @@ For example: If you change a controller, you probably don't need to run any of y
 
 Other changes, such as those to the readme.md of a project, do not need any tests at all in order to be merged. 
 
-Ecospec takes a conservative approach: If you don't ignore the directory/file, and don't have a rule for it, the entire test suite will run. Only when you have exlicitly specified that a file or directory is safe to ignore via patter matching, or what also should run if any of its contents change, does ecospec generate a list of files. 
+Ecospec takes a conservative approach: If you don't ignore the directory/file, and don't have a rule for it, the entire test suite will run. Only when you have exlicitly specified that a file or directory is safe to ignore via pattern matching, or what also should run if any of its contents change, does ecospec generate a list of files. 
 
 And for any change made in app/, it's spec will be looked for in spec/ and added to the tests to run if it exists. This means if you add `app/presenters` as a matching rule with no additional details, then any files changed within will also require their associated spec (and not the entire test suite)
-
-
-## Suggestions
-
-- Given the reach of Models in a typical codebase, you may want to be liberal in running tests for these changes. 
-- be careful with any instances where intergration tests are skipped. Be mindful of what they actually test and if you want the entire test suite to be running for their changes. 
-- both the matching and related_specs are regex, allowing you express custom test matching. 
-- lean towards overtesting
-- avoid file-specific matching and rely on patterns/directory matching. 
-
 
 ## Installation
 
@@ -67,6 +57,14 @@ To run the specs, you can run
 rspec $(bundle exec ecospec)
 ```
 
+## Suggestions
+
+- Given the reach of Models in a typical codebase, you may want to be liberal in running tests for these changes. 
+- be careful with any instances where intergration tests are skipped. Be mindful of what they actually test and if you want the entire test suite to be running for their changes. 
+- both the matching and related_specs are regex, allowing you express custom test matching. 
+- lean towards overtesting
+- avoid file-specific matching and rely on patterns/directory matching. 
+
 
 ## Development
 
@@ -76,7 +74,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/ecospec.
+Bug reports and pull requests are welcome on GitHub at https://github.com/meesterdude/ecospec.
 
 ## License
 
